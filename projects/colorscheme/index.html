@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="mode">	
+Hard mode:
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+
+</div>
+<div id="counter">
+<span id="goodCount">0</span>/<span id="total">0</span><br/>
+		<div class="stopwatch"></div>
+
+</div>
+<div id="res">
+</div>
+
+
+<div class="scene">
+  <div class="cube">
+    <div id="front"class="cube__face cube__face--front"></div>
+    <div id="right"class="cube__face cube__face--right"></div>
+    <div id="top"class="cube__face cube__face--top"></div>
+  </div>
+</div>
+
+<div id="button-container">
+
+<input class="button" type="button" id="button1" onclick="answer(0);" ></input>
+<input class="button" type="button" id="button2" onclick="answer(1);"></input>
+<input class="button" type="button" id="button3" onclick="answer(2);"></input>
+<input class="button" type="button" id="button4" onclick="answer(3);"></input>
+</div>
+
+<script language="javascript" type="text/javascript" src="script.js"></script>	
+<script language="javascript" type="text/javascript" src="stopwatch.js"></script>	
+<script>
+startGame();
+</script>	
+</body>
+</html>
