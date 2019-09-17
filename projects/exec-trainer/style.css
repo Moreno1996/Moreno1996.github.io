@@ -16,9 +16,9 @@ body, html {
   margin: auto;  /* Magic! */
   height:50%;
 }
-    .canvas{
-  width:80%;
-  height:40%;
+.canvas {
+    max-width: 80%;
+    max-height: 80%;
 }
 .bot_container{
   background-color: green;

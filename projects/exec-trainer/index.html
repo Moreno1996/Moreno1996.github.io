@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title></title>
   <link rel="stylesheet" href="style.css">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -11,14 +13,14 @@
       <div class="container">
         <div class="top_container container_child">
         <div id="contents">
-          <button onclick="newScramble()">New Scramble</button><br/>
-            <span id="content-text"></span>
+          <button class = "btn" onclick="newScramble()">New Scramble</button><br/>
+            <h3 id="content-text"></h3>
         </div>
         <br/>
-          <canvas id="canvas" class="canvas"></canvas>
+          <canvas id="canvas" class="canvas" width="800px" height="800px"></canvas>
           <br/>
-      Edges: <span id="edges"></span><br/>
-      Corners: <span id="corners"></span>
+    <h3>  Edges: <span id="edges"></span></h3>
+    <h3>  Corners: <span id="corners"></span></h3>
     </div>
     <div class="bot_container container_child">
 

@@ -49,8 +49,13 @@ var context = document.getElementById("canvas").getContext("2d");;
 
  function drawCube() {
    var c = document.getElementById("canvas");
+   c.width  = window.innerWidth/2;
+   c.height = window.innerHeight/2;
    var ctx = c.getContext("2d");
-   var size = Math.floor(Math.min(c.width / 12, c.height / 9)) ;
+   var size = Math.floor(Math.min(c.width / 12, c.height / 9))-1 ;
+
+   c.width = 12*size + size;
+   c.height = 9*size+size;
    drawCenters(ctx, size);
    drawCorners(ctx, size);
    drawEdges(ctx, size);
