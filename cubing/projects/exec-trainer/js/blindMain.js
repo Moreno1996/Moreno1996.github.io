@@ -1,6 +1,6 @@
 //corner letters
 
-var cube_edges = 				["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "x", "z"];
+var cube_edges = 			["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "x", "z"];
 var solution_edges = 		["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "x", "z"];
 var mirror_edges = 			["m", "i", "e", "r", "c", "l", "v", "s", "b", "p", "w", "f", "a", "u", "x", "j", "d", "h", "z", "n", "g", "k", "o", "t"];
 var normal =            ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "x", "z"];

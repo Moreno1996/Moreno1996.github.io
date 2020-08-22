@@ -16,7 +16,6 @@ function newScramble(){
 var context = document.getElementById("canvas").getContext("2d");;
 
  function convert(scramble) {
-   //scramble ="B F";
    scramble = clean(scramble);
    console.log(scramble);
    executeScramble(scramble);
@@ -66,22 +65,18 @@ console.log("Draw cube");
 
  function drawEdges(ctx, size) {
    var colors = getCubeColor(getCubeEdges());
-   //TOP FACE
    ctx.strokeStyle = "#000000";
    for (var i = 0; i < backup.length; i++) {
-     ctx.fillStyle = colors[i];
      var x = i%4;
      var y = Math.floor(i/4);
      var z = (y == 0)? 1 : y % 4 ;
      var z2 = Math.ceil((y%5)/5)+Math.floor(y/5)*2;
      if (i%4== 2) {
-       ctx.fRect(z * 3 * size + size, z2 *3* size +size * (Math.floor(x / 3) + x % 3), size, size);
-       ctx.sRect(z * 3 * size + size, z2 *3* size +size * (Math.floor(x / 3) +x % 3), size, size);
+	drawSquare(ctx,z * 3 * size + size, z2 *3* size +size * (Math.floor(x / 3) + x % 3), size,colors[i])
 
      } else {
-       ctx.fRect(z * 3 * size + ((x + 1) % 4) * size, z2 *3* size +size * (Math.floor(x / 3) + x % 3), size, size);
-       ctx.sRect(z * 3 * size + ((x + 1) % 4) * size, z2 *3* size +size * (Math.floor(x / 3) + x % 3), size, size);
-
+		 drawSquare(ctx,z * 3 * size + ((x + 1) % 4) * size, z2 *3* size +size * (Math.floor(x / 3) + x % 3), size,colors[i])
+      
      }
    }
   }
@@ -95,34 +90,26 @@ console.log("Draw cube");
      var y = Math.floor(i/4);
      var z = (y == 0)? 1 : y % 4 ;
      var z2 = Math.ceil((y%5)/5)+Math.floor(y/5)*2;
-     ctx.fillStyle = colors[i];
-     ctx.fRect(z*3 * size + 2 * size * Math.ceil((x % 3) / 3), 3*z2*size +2 * size * Math.floor(x / 2), size, size);
-     ctx.sRect(z*3 * size + 2 * size * Math.ceil((x % 3) / 3), 3*z2*size +2 * size * Math.floor(x / 2), size, size);
+	 drawSquare(ctx,z*3 * size + 2 * size * Math.ceil((x % 3) / 3), 3*z2*size +2 * size * Math.floor(x / 2), size,colors[i])
+
 
    }
  }
  function drawCenters(ctx, size) {
    ctx.strokeStyle = "#000000";
-   ctx.fillStyle = "white";
-   ctx.fRect(4*size,1*size, size, size);
-   ctx.sRect(4*size,1*size, size, size);
-   ctx.fillStyle = "green";
-   ctx.fRect(4*size,4*size, size, size);
-   ctx.sRect(4*size,4*size, size, size);
-   ctx.fillStyle = "red";
-   ctx.fRect(7*size,4*size, size, size);
-   ctx.sRect(7*size,4*size, size, size);
-   ctx.fillStyle = "blue";
-   ctx.fRect(10*size,4*size, size, size);
-   ctx.sRect(10*size,4*size, size, size);
-   ctx.fillStyle = "orange";
-   ctx.fRect(1*size,4*size, size, size);
-   ctx.sRect(1*size,4*size, size, size);
-   ctx.fillStyle = "yellow";
-   ctx.fRect(4*size,7*size, size, size);
-   ctx.sRect(4*size,7*size, size, size);
-   }
+   drawSquare(ctx,4*size,1*size, size,"white")
+   drawSquare(ctx,4*size,4*size, size,"green")
+   drawSquare(ctx,7*size,4*size, size,"red")
+   drawSquare(ctx,10*size,4*size, size,"blue")
+   drawSquare(ctx,1*size,4*size, size,"orange")
+   drawSquare(ctx,4*size,7*size, size, "yellow");
 
+   }
+function drawSquare(ctx,x,y,size,color){
+	ctx.fillStyle = color;
+   ctx.fRect(x,y, size, size);
+   ctx.sRect(x,y, size, size);
+}
    context.sRect=function(x,y,w,h){
   x=Math.floor(x)+0.50;
   y=Math.floor(y)+0.50;

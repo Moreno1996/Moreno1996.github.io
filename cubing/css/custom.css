@@ -16,3 +16,13 @@ img{
 .card {
     height: 100%;
 }
+.priority1{
+	order:1;
+}
+.priority2{
+	order:2;
+}
+.priority3{
+	order:3;
+}
+.conta
