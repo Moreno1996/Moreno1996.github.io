@@ -1,6 +1,23 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    output:"export"
+
+
+const is_build = true;
+
+let assetPrefix = '';
+let basePath = '';
+
+if (is_build) {
+  // trim off `<owner>/`
+  const repo = 'Moreno1996.github.io'
+  assetPrefix = `/${repo}/`
+  basePath = `/${repo}`
+
 }
+const nextConfig = {
+    reactStrictMode: true,
+    distDir: '../docs',
+    output: 'export',
+    assetPrefix: assetPrefix,
+    basePath: basePath,}
 
 module.exports = nextConfig
