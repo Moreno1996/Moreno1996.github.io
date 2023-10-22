@@ -8,9 +8,9 @@ let basePath = '';
 
 if (is_build) {
   // trim off `<owner>/`
-  const repo = 'Moreno1996.github.io'
-  assetPrefix = `/${repo}/`
-  basePath = `/${repo}`
+  const repo = ''
+  assetPrefix = `/`
+  basePath = ``
 
 }
 const nextConfig = {
