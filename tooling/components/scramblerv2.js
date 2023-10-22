@@ -1462,12 +1462,20 @@ function MorenoScrambler() {
     );
   }
 
+  function getPLLScramble() {
+    return scrambler.scramble(
+      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 1, 2, 3, -1, -1, -1, -1],
+      [0, 0, 0, 0, 0, 0, 0, 0]
+    );
+  }
   function getLLScramble() {
     return scrambler.scramble(
-      [-1, -1, -1, -1, 4, 5, 6, 7, 8, 9, 10, 11],
-      [-1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0],
-      [-1, -1, -1, -1, 4, 5, 6, 7],
-      [-1, -1, -1, -1, 0, 0, 0, 0]
+      [0, 1, 2, 3, -1, -1, -1, -1, 8, 9, 10, 11],
+      [0, 0, 0, 0, -1, -1, -1, -1, 0, 0, 0, 0],
+      [0, 1, 2, 3, -1, -1, -1, -1],
+      [0, 0, 0, 0, -1, -1, -1, -1]
     );
   }
 
@@ -1544,14 +1552,6 @@ function MorenoScrambler() {
         );
     }
   }
-  function getAnyScramble() {
-    return scrambler.scramble(
-      [-1, -1, -1, -1, 4, -1, 6, -1, 8, 9, 10, 11],
-      [-1, -1, -1, -1, 0, -1, 0, -1, 0, 0, 0, 0],
-      [-1, -1, -1, -1, 4, 5, 6, 7],
-      [-1, -1, -1, -1, 0, 0, 0, 0]
-    );
-  }
   function getCMLLScramble() {
     switch (rn(4)) {
       case 0:
@@ -1616,12 +1616,17 @@ function MorenoScrambler() {
       [0, 0, 0, 0, 0, 0, 0, 0]
     );
   }
-  function getEasyBLDScramble(c, e) {
+  function between(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  function getScrambleWithCorrectCornersAndEndges(corners, edges) {
     var ep = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
     var eo = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
     var cp = [-1, -1, -1, -1, -1, -1, -1, -1];
     var co = [-1, -1, -1, -1, -1, -1, -1, -1];
-    for (var i = 0; i < c; i++) {
+    for (var i = 0; i < edges; i++) {
       var number = between(0, 11);
       if ((ep[number] = -1)) {
         ep[number] = number;
@@ -1630,7 +1635,7 @@ function MorenoScrambler() {
         i--;
       }
     }
-    for (var i = 0; i < e; i++) {
+    for (var i = 0; i < corners; i++) {
       var number = between(0, 7);
       if ((cp[number] = -1)) {
         cp[number] = number;
@@ -1642,11 +1647,30 @@ function MorenoScrambler() {
     return scrambler.scramble(ep, eo, cp, co);
   }
 
+  function getScrambleBlindLevel1() {
+    return getScrambleWithCorrectCornersAndEndges(4, 8);
+  }
+  function getScrambleBlindLevel2() {
+    return getScrambleWithCorrectCornersAndEndges(3, 6);
+  }
+  function getScrambleBlindLevel3() {
+    return getScrambleWithCorrectCornersAndEndges(3, 5);
+  }
+  function getScrambleBlindLevel4() {
+    return getScrambleWithCorrectCornersAndEndges(2, 4);
+  }
+  function getScrambleBlindLevel5() {
+    return getScrambleWithCorrectCornersAndEndges(2, 3);
+  }
+  function getScrambleBlindLevel6() {
+    return getScrambleWithCorrectCornersAndEndges(1, 2);
+  }
   return {
     /* added methods */
     getEdgeScramble: getEdgeScramble,
     getCornerScramble: getCornerScramble,
     getLLScramble: getLLScramble,
+    getPLLScramble: getPLLScramble,
     getLSLLScramble: getLSLLScramble,
     getZBLLScramble: getZBLLScramble,
     getF2LScramble: getF2LScramble,
@@ -1655,7 +1679,12 @@ function MorenoScrambler() {
     getCLLScramble: getCLLScramble,
     getELLScramble: getELLScramble,
     getRandomScramble: getRandomScramble,
-    getEasyBLDScramble: getEasyBLDScramble,
+    getScrambleBlindLevel1,
+    getScrambleBlindLevel2,
+    getScrambleBlindLevel3,
+    getScrambleBlindLevel4,
+    getScrambleBlindLevel5,
+    getScrambleBlindLevel6,
     getTestScramble: getTestScramble,
     getZZScramble,
   };

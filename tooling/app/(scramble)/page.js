@@ -15,12 +15,36 @@ export default function Home() {
       scramble: scrambler.getF2LScramble,
     },
     {
-      title: "Last Layer",
+      title: "OLL",
       scramble: scrambler.getLLScramble,
     },
     {
-      title: "Easy blind",
-      scramble: scrambler.getEasyBLDScramble,
+      title: "PLL",
+      scramble: scrambler.getPLLScramble,
+    },
+    {
+      title: "Blind level 1/6",
+      scramble: scrambler.getScrambleBlindLevel1,
+    },
+    {
+      title: "Blind level 2/6",
+      scramble: scrambler.getScrambleBlindLevel2,
+    },
+    {
+      title: "Blind level 3/6",
+      scramble: scrambler.getScrambleBlindLevel3,
+    },
+    {
+      title: "Blind level 4/6",
+      scramble: scrambler.getScrambleBlindLevel4,
+    },
+    {
+      title: "Blind level 5/6",
+      scramble: scrambler.getScrambleBlindLevel5,
+    },
+    {
+      title: "Blind level 6/6",
+      scramble: scrambler.getScrambleBlindLevel6,
     },
     {
       title: "Corner only",
