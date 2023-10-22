@@ -23,6 +23,18 @@ export default function Home() {
       scramble: scrambler.getPLLScramble,
     },
     {
+      title: "Corner only",
+      scramble: scrambler.getCornerScramble,
+    },
+    {
+      title: "Edge only",
+      scramble: scrambler.getEdgeScramble,
+    },
+    {
+      title: "EO Done",
+      scramble: scrambler.getZZScramble,
+    },
+    {
       title: "Blind level 1/6",
       scramble: scrambler.getScrambleBlindLevel1,
     },
@@ -45,18 +57,6 @@ export default function Home() {
     {
       title: "Blind level 6/6",
       scramble: scrambler.getScrambleBlindLevel6,
-    },
-    {
-      title: "Corner only",
-      scramble: scrambler.getCornerScramble,
-    },
-    {
-      title: "Edge only",
-      scramble: scrambler.getEdgeScramble,
-    },
-    {
-      title: "EO Done",
-      scramble: scrambler.getZZScramble,
     },
   ];
   const [scramble, setScramble] = useState(scrambles[0]?.title);
